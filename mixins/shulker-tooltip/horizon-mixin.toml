@@ -1,0 +1,17 @@
+[mod]
+id = "shulker-tooltip"
+version = "0.1.0"
+priority = 100
+
+[compatibility]
+horizon_revision = "cd79f2e32602c6b501822bb6b5967cf08ac447d4"
+
+[[injection]]
+id = "tooltip"
+target = "horizon_client::game::native_hooks::Game<'_>::native_tooltip"
+kind = "HEAD"
+helper = "tooltip.rs"
+bindings = [
+  { name = "stack", ty = "&ItemStack", value = "stack" },
+  { name = "lines", ty = "&mut Vec<(Text, u32)>", value = "&mut *lines" },
+]
